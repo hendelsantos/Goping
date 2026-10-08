@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#f4f7f5" />
+    <meta
+      name="description"
+      content="GoPing é uma plataforma open source de monitoramento de sites e APIs, construída em Go para acompanhar uptime, latência e incidentes."
+    />
+    <meta
+      name="keywords"
+      content="monitoramento de sites, uptime monitor, monitoramento de API, Go, Golang, open source"
+    />
+    <meta name="author" content="Projeto GoPing" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://goping.dev/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content="GoPing" />
+    <meta property="og:title" content="GoPing — Monitoramento simples. Respostas rápidas." />
+    <meta
+      property="og:description"
+      content="Monitore a disponibilidade e a latência dos seus sites e APIs em um painel direto ao ponto."
+    />
+    <meta property="og:url" content="https://goping.dev/" />
+    <meta property="og:image" content="https://goping.dev/assets/og-cover.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <title>GoPing | Monitoramento open source de sites e APIs</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Dados estruturados ajudam buscadores a entender o projeto e seu propósito. -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "GoPing",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web",
+        "description": "Plataforma open source de monitoramento de disponibilidade e latência para sites e APIs.",
+        "url": "https://goping.dev/",
+        "isAccessibleForFree": true,
+        "programmingLanguage": "Go"
+      }
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <!-- A barra lateral permanece compacta para priorizar os dados operacionais. -->
+    <aside class="sidebar" aria-label="Navegação principal">
+      <a class="brand" href="#visao-geral" aria-label="GoPing — início">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span>GoPing</span>
+      </a>
+
+      <nav class="main-nav">
+        <a class="nav-link active" href="#visao-geral" aria-current="page">
+          <i data-lucide="layout-dashboard" aria-hidden="true"></i>
+          <span>Visão geral</span>
+        </a>
+        <a class="nav-link" href="#monitores">
+          <i data-lucide="radio-tower" aria-hidden="true"></i>
+          <span>Monitores</span>
+          <strong id="nav-monitor-count">4</strong>
+        </a>
+        <a class="nav-link" href="#atividade">
+          <i data-lucide="history" aria-hidden="true"></i>
+          <span>Atividade</span>
+        </a>
+        <a class="nav-link" href="#projeto">
+          <i data-lucide="code-2" aria-hidden="true"></i>
+          <span>O projeto</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-status">
+        <span class="pulse-dot" aria-hidden="true"></span>
+        <div>
+          <strong>Sistema operacional</strong>
+          <small>Última verificação agora</small>
+        </div>
+      </div>
+    </aside>
+
+    <main id="conteudo" class="app-shell">
+      <header class="topbar">
+        <button class="icon-button menu-button" id="menu-button" type="button" aria-label="Abrir menu">
+          <i data-lucide="menu" aria-hidden="true"></i>
+        </button>
+        <div class="environment">
+          <span class="eyebrow">Workspace</span>
+          <strong>Produção</strong>
+          <i data-lucide="chevron-down" aria-hidden="true"></i>
+        </div>
+        <div class="topbar-actions">
+          <a class="icon-button" href="#projeto" aria-label="Ver detalhes do projeto" title="Sobre o projeto">
+            <i data-lucide="code-2" aria-hidden="true"></i>
+          </a>
+          <button class="primary-button" type="button" data-open-monitor>
+            <i data-lucide="plus" aria-hidden="true"></i>
+            Novo monitor
+          </button>
+        </div>
+      </header>
+
+      <!-- O dashboard é a experiência principal, não uma landing page decorativa. -->
+      <section class="dashboard-section" id="visao-geral" aria-labelledby="page-title">
+        <div class="section-heading reveal">
+          <div>
+            <p class="eyebrow">Quinta-feira, 08 de outubro</p>
+            <h1 id="page-title">Tudo sob controle.</h1>
+            <p>Seus serviços estão sendo observados. Veja o que precisa da sua atenção.</p>
+          </div>
+          <div class="live-status"><span></span> Atualização em tempo real</div>
+        </div>
+
+        <div class="metrics-grid reveal" aria-label="Resumo do monitoramento">
+          <article class="metric metric-highlight">
+            <div class="metric-label">
+              <span>Disponibilidade geral</span>
+              <i data-lucide="activity" aria-hidden="true"></i>
+            </div>
+            <strong id="uptime-value">99,98<small>%</small></strong>
+            <p><span class="trend-up">+0,03%</span> nos últimos 30 dias</p>
+          </article>
+          <article class="metric">
+            <div class="metric-label">
+              <span>Serviços online</span>
+              <i data-lucide="circle-check" aria-hidden="true"></i>
+            </div>
+            <strong><span id="online-count">3</span><small id="total-count"> / 4</small></strong>
+            <p id="services-caption">1 serviço requer atenção</p>
+          </article>
+          <article class="metric">
+            <div class="metric-label">
+              <span>Latência média</span>
+              <i data-lucide="gauge" aria-hidden="true"></i>
+            </div>
+            <strong id="latency-value">184<small> ms</small></strong>
+            <p><span class="trend-up">−12 ms</span> comparado a ontem</p>
+          </article>
+          <article class="metric">
+            <div class="metric-label">
+              <span>Incidentes</span>
+              <i data-lucide="triangle-alert" aria-hidden="true"></i>
+            </div>
+            <strong id="incident-count">1<small> aberto</small></strong>
+            <p>2 resolvidos nesta semana</p>
+          </article>
+        </div>
+
+        <div class="dashboard-grid">
+          <section class="panel monitors-panel reveal" id="monitores" aria-labelledby="monitors-title">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Estado atual</p>
+                <h2 id="monitors-title">Seus monitores</h2>
+              </div>
+              <div class="panel-tools">
+                <label class="search-field">
+                  <span class="sr-only">Buscar monitor</span>
+                  <i data-lucide="search" aria-hidden="true"></i>
+                  <input id="monitor-search" type="search" placeholder="Buscar serviço" autocomplete="off" />
+                </label>
+                <button class="icon-button" id="filter-button" type="button" aria-label="Filtrar monitores" title="Filtrar monitores">
+                  <i data-lucide="list-filter" aria-hidden="true"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="monitor-table" role="table" aria-label="Monitores cadastrados">
+              <div class="monitor-row table-head" role="row">
+                <span role="columnheader">Serviço</span>
+                <span role="columnheader">Status</span>
+                <span role="columnheader">Uptime</span>
+                <span role="columnheader">Latência</span>
+                <span role="columnheader">Última checagem</span>
+                <span role="columnheader" class="sr-only">Ações</span>
+              </div>
+              <div id="monitor-list"></div>
+            </div>
+            <div class="empty-state" id="empty-state" hidden>
+              <i data-lucide="search-x" aria-hidden="true"></i>
+              <strong>Nenhum monitor encontrado</strong>
+              <p>Ajuste sua busca ou cadastre um novo serviço.</p>
+            </div>
+          </section>
+
+          <section class="panel latency-panel reveal" aria-labelledby="latency-title">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Performance</p>
+                <h2 id="latency-title">Tempo de resposta</h2>
+              </div>
+              <select id="chart-period" aria-label="Período do gráfico">
+                <option value="24">Últimas 24h</option>
+                <option value="7">Últimos 7 dias</option>
+                <option value="30">Últimos 30 dias</option>
+              </select>
+            </div>
+            <div class="chart-summary">
+              <strong>184 <small>ms</small></strong>
+              <span>média do período</span>
+            </div>
+            <div class="chart-wrap" aria-label="Gráfico da latência média nas últimas 24 horas">
+              <div class="chart-axis" aria-hidden="true"><span>400 ms</span><span>300 ms</span><span>200 ms</span><span>100 ms</span></div>
+              <svg class="latency-chart" viewBox="0 0 640 220" role="img" aria-labelledby="chart-title chart-description">
+                <title id="chart-title">Latência média</title>
+                <desc id="chart-description">A latência variou entre 120 e 310 milissegundos no período.</desc>
+                <defs>
+                  <linearGradient id="chart-fill" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#ff5c35" stop-opacity="0.25" />
+                    <stop offset="100%" stop-color="#ff5c35" stop-opacity="0" />
+                  </linearGradient>
+                </defs>
+                <g class="grid-lines">
+                  <line x1="0" y1="20" x2="640" y2="20" /><line x1="0" y1="75" x2="640" y2="75" />
+                  <line x1="0" y1="130" x2="640" y2="130" /><line x1="0" y1="185" x2="640" y2="185" />
+                </g>
+                <path class="chart-area" d="M0,148 C40,132 60,164 102,139 S170,88 208,114 S270,151 315,116 S377,53 419,82 S486,142 530,112 S595,72 640,91 L640,220 L0,220 Z" />
+                <path class="chart-line" d="M0,148 C40,132 60,164 102,139 S170,88 208,114 S270,151 315,116 S377,53 419,82 S486,142 530,112 S595,72 640,91" />
+                <circle class="chart-point" cx="419" cy="82" r="5" />
+              </svg>
+              <div class="chart-labels" aria-hidden="true"><span>00h</span><span>04h</span><span>08h</span><span>12h</span><span>16h</span><span>20h</span><span>Agora</span></div>
+            </div>
+          </section>
+
+          <section class="panel activity-panel reveal" id="atividade" aria-labelledby="activity-title">
+            <div class="panel-header">
+              <div>
+                <p class="eyebrow">Registro recente</p>
+                <h2 id="activity-title">Atividade</h2>
+              </div>
+              <button class="text-button" type="button" id="clear-activity">Limpar</button>
+            </div>
+            <ol class="activity-list" id="activity-list"></ol>
+          </section>
+        </div>
+      </section>
+
+      <!-- Conteúdo editorial curto melhora a compreensão do projeto por pessoas e buscadores. -->
+      <section class="project-section" id="projeto" aria-labelledby="project-title">
+        <div class="project-intro reveal">
+          <p class="eyebrow">Open source · Feito em Go</p>
+          <h2 id="project-title">Monitoramento sem ruído.</h2>
+          <p>
+            O GoPing acompanha a disponibilidade e o tempo de resposta de sites e APIs. Um projeto de portfólio
+            construído para explorar HTTP, concorrência, persistência e observabilidade com uma arquitetura simples.
+          </p>
+        </div>
+        <div class="project-principles reveal">
+          <article><span>01</span><h3>Direto ao ponto</h3><p>Estados claros, histórico útil e nenhuma configuração desnecessária.</p></article>
+          <article><span>02</span><h3>Transparente</h3><p>Código aberto, decisões documentadas e métricas fáceis de interpretar.</p></article>
+          <article><span>03</span><h3>Evolução consciente</h3><p>Um monólito Go enxuto antes de qualquer complexidade distribuída.</p></article>
+        </div>
+      </section>
+
+      <footer>
+        <a class="brand footer-brand" href="#visao-geral"><span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span><span>GoPing</span></a>
+        <p>Monitoramento open source de sites e APIs.</p>
+        <span>Projeto de portfólio · 2026</span>
+      </footer>
+    </main>
+
+    <!-- Dialog nativo oferece foco, teclado e fechamento acessíveis sem biblioteca. -->
+    <dialog id="monitor-dialog" aria-labelledby="dialog-title">
+      <form id="monitor-form" method="dialog">
+        <div class="dialog-header">
+          <div>
+            <p class="eyebrow">Configuração</p>
+            <h2 id="dialog-title">Novo monitor</h2>
+          </div>
+          <button class="icon-button" id="close-dialog" type="button" aria-label="Fechar">
+            <i data-lucide="x" aria-hidden="true"></i>
+          </button>
+        </div>
+        <label>
+          Nome do serviço
+          <input name="name" type="text" placeholder="Ex.: API de pagamentos" maxlength="50" required />
+        </label>
+        <label>
+          URL HTTP/HTTPS
+          <input name="url" type="url" placeholder="https://api.exemplo.com/health" required />
+        </label>
+        <div class="form-row">
+          <label>
+            Intervalo
+            <select name="interval">
+              <option value="5">A cada 5 min</option>
+              <option value="10">A cada 10 min</option>
+              <option value="30">A cada 30 min</option>
+            </select>
+          </label>
+          <label>
+            Timeout
+            <select name="timeout">
+              <option value="5">5 segundos</option>
+              <option value="10">10 segundos</option>
+              <option value="15">15 segundos</option>
+            </select>
+          </label>
+        </div>
+        <p class="form-note"><i data-lucide="database" aria-hidden="true"></i> Os dados são validados e persistidos pelo servidor GoPing.</p>
+        <div class="dialog-actions">
+          <button class="secondary-button" id="cancel-dialog" type="button">Cancelar</button>
+          <button class="primary-button" type="submit"><i data-lucide="plus" aria-hidden="true"></i>Criar monitor</button>
+        </div>
+      </form>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js" defer></script>
+    <script src="app.js" defer></script>
+  </body>
+</html>
